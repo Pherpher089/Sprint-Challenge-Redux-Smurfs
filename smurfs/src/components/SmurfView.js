@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getSmurfs} from '../actions';
 import SmurfCard from './SmurfCard';
-
+import AddSmurfForm from './AddSmurfForm'
 class SmurfView extends React.Component{
     constructor(props){
         super(props);
@@ -24,6 +24,7 @@ class SmurfView extends React.Component{
         return(
             <div>
                 <SmurfCard smurfs={this.props.smurfs} />
+                <AddSmurfForm />
             </div>
         )
     }
