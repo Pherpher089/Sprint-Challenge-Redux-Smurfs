@@ -16,6 +16,7 @@ import {GET_SMURF, SUCCESS, FAILURE, ADD_SMURF} from '../actions'
 const initalState = {
   smurfs: [],
   fetchingSmurfs: false,
+  addingSmurf: false,
   error: null
 }
 /*
@@ -37,14 +38,21 @@ export const smurfReducer = (state = initalState, action) => {
       return{
         ...state,
         smurfs: action.payload,
-        fetchingSmurfs: false
+        fetchingSmurfs: false,
+        addingSmurf: false
       }
     case FAILURE:
       return{
         ...state,
         error: action.payload,
-        fetchingSmurfs: false
+        fetchingSmurfs: false,
+        addingSmurf: false
       }
+      case ADD_SMURF:
+        return {
+          ...state,
+          addingSmurf: true
+        }
     default:
       return state;
   }
